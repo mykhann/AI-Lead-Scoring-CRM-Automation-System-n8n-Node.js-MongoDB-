@@ -1,7 +1,12 @@
 import express from "express"
+import leadRoutes from "./src/routes/lead.routes.js"
 const app= express()
 
 const PORT= process.env.PORT || 3001
+
+
+// routes 
+app.use("/api/leads",leadRoutes)
 
 
 // start server 
