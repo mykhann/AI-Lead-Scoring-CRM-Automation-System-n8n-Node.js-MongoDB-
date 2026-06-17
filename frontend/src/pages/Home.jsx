@@ -2,68 +2,101 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
+  // Use your direct Cloudinary link as a fallback string variable
+  const n8nWorkflowImg = "https://res.cloudinary.com/dsdbty95v/image/upload/v1781675877/Screenshot_2026-06-17_105019_pdvl9b.png";
+
   return (
     <div className="home-container">
 
       {/* ══════════════════════════════════
-          HERO (LIVE DEMO SECTION)
+          HERO SECTION (BALANCED 2-COLUMN)
       ══════════════════════════════════ */}
       <section className="hero">
-        <div className="hero-content">
-          <span className="badge">
-            <span className="badge-star">★</span>
-            AI + AUTOMATION + INTELLIGENCE
-          </span>
+        <div className="hero-grid">
+          
+          {/* Left Column: Premium Value Proposition */}
+          <div className="hero-content">
+            <span className="badge">
+              <span className="badge-star">★</span>
+              AI + Automation + Intelligence
+            </span>
 
-          <h1>
-            Turn Leads Into
-            <span className="hero-accent">Opportunities</span>
-          </h1>
+            <h1>
+              Turn Leads Into
+              <span className="hero-accent">Opportunities</span>
+            </h1>
 
-          <p className="subtitle">
-            Our AI-powered automation system captures leads, analyzes
-            their intent, scores their quality, and sends results to your email and saves the leads in Google Docs all automatically.
-          </p>
+            <p className="subtitle">
+              Our AI-powered automation system captures leads, analyzes
+              their intent, scores quality, and instantly synchronizes data across your ecosystem automatically.
+            </p>
 
-          <div className="hero-actions">
-            <Link to="/demo" className="btn">Try Live Demo ✈</Link>
-            <a href="#workflow" className="btn btn-secondary">View Workflow ▶</a>
+            <div className="hero-actions">
+              <Link to="/demo" className="btn-primary">Try Live Demo ✈</Link>
+              <a href="#workflow" className="btn-secondary">View Pipeline Structure ▶</a>
+            </div>
+
+            <div className="trust-badges">
+              <div className="trust-badge">
+                <span className="trust-badge-icon">⚡</span>
+                <div className="trust-badge-text">
+                  <strong>AI Powered</strong>
+                  <span>Groq LLM Engine</span>
+                </div>
+              </div>
+              <div className="trust-badge">
+                <span className="trust-badge-icon">🤖</span>
+                <div className="trust-badge-text">
+                  <strong>Automated</strong>
+                  <span>n8n Workflows</span>
+                </div>
+              </div>
+              <div className="trust-badge">
+                <span className="trust-badge-icon">🛡️</span>
+                <div className="trust-badge-text">
+                  <strong>Secure</strong>
+                  <span>Webhook Protected</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="trust-badges">
-            <div className="trust-badge">
-              <span className="trust-badge-icon">⚡</span>
-              <div className="trust-badge-text">
-                <strong>AI Powered</strong>
-                <span>Groq LLM</span>
+          {/* Right Column: Premium Dashboard Preview */}
+          <div className="hero-preview">
+            <div className="dashboard-frame">
+              <div className="dashboard-header">
+                <div className="window-dots">
+                  <span className="dot red"></span>
+                  <span className="dot yellow"></span>
+                  <span className="dot green"></span>
+                </div>
+                <div className="dashboard-title">Lead Intake Automation Pipeline</div>
+                <div className="status-indicator">
+                  <span className="pulse-dot"></span>
+                  Live Engine
+                </div>
               </div>
-            </div>
-            <div className="trust-badge">
-              <span className="trust-badge-icon">🤖</span>
-              <div className="trust-badge-text">
-                <strong>Automated</strong>
-                <span>n8n Workflows</span>
-              </div>
-            </div>
-            <div className="trust-badge">
-              <span className="trust-badge-icon">🛡️</span>
-              <div className="trust-badge-text">
-                <strong>Secure</strong>
-                <span>Webhook Protected</span>
+              <div className="dashboard-body">
+                <img 
+                  src={n8nWorkflowImg} 
+                  alt="Lead Intake Automation Pipeline Workflow" 
+                  className="pipeline-screenshot"
+                />
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
       {/* ══════════════════════════════════
-          WORKFLOW SECTION
+          WORKFLOW VISUALIZATION STEPS
       ══════════════════════════════════ */}
       <section className="workflow-section" id="workflow">
         <div className="workflow-container">
           <div className="wf-title">
             <span className="wf-title-icon">⚙️</span>
-            Automation Workflow
+            System Architecture Flow
           </div>
 
           {/* Top row: 4 steps + 3 arrows */}
@@ -133,7 +166,7 @@ const Home = () => {
       </section>
 
       {/* ══════════════════════════════════
-          FEATURES
+          FEATURES GRID (GLASSMORPHISM)
       ══════════════════════════════════ */}
       <section className="features">
         <p className="features-eyebrow">FEATURES</p>
@@ -154,7 +187,7 @@ const Home = () => {
             <p>n8n workflows handle routing, processing, and data management.</p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon-wrap iw-violet">🧠</div>
+            <div className="feature-icon-wrap iw-purple">🧠</div>
             <h3>AI Analysis</h3>
             <p>Groq LLM analyzes intent, extracts insights, and generates summaries.</p>
           </div>
@@ -177,38 +210,40 @@ const Home = () => {
       </section>
 
       {/* ══════════════════════════════════
-          STATS
+          STATS BAR
       ══════════════════════════════════ */}
-      <div className="stats-row">
-        <div className="stat-item">
-          <span className="stat-icon">👥</span>
-          <div>
-            <strong className="stat-number">500+</strong>
-            <span className="stat-label">Leads Processed</span>
+      <section className="stats-section">
+        <div className="stats-row">
+          <div className="stat-item">
+            <span className="stat-icon">👥</span>
+            <div>
+              <strong className="stat-number">500+</strong>
+              <span className="stat-label">Leads Processed</span>
+            </div>
+          </div>
+          <div className="stat-item">
+            <span className="stat-icon">🎯</span>
+            <div>
+              <strong className="stat-number">85%</strong>
+              <span className="stat-label">Accuracy Score</span>
+            </div>
+          </div>
+          <div className="stat-item">
+            <span className="stat-icon">⚡</span>
+            <div>
+              <strong className="stat-number">2.3s</strong>
+              <span className="stat-label">Avg. Processing Time</span>
+            </div>
+          </div>
+          <div className="stat-item">
+            <span className="stat-icon">📈</span>
+            <div>
+              <strong className="stat-number">35%</strong>
+              <span className="stat-label">Conversion Increase</span>
+            </div>
           </div>
         </div>
-        <div className="stat-item">
-          <span className="stat-icon">🎯</span>
-          <div>
-            <strong className="stat-number">85%</strong>
-            <span className="stat-label">Accuracy Score</span>
-          </div>
-        </div>
-        <div className="stat-item">
-          <span className="stat-icon">⚡</span>
-          <div>
-            <strong className="stat-number">2.3s</strong>
-            <span className="stat-label">Avg. Processing Time</span>
-          </div>
-        </div>
-        <div className="stat-item">
-          <span className="stat-icon">📈</span>
-          <div>
-            <strong className="stat-number">35%</strong>
-            <span className="stat-label">Conversion Increase</span>
-          </div>
-        </div>
-      </div>
+      </section>
 
     </div>
   );
