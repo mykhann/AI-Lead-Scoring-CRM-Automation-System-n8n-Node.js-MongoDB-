@@ -8,7 +8,11 @@ dotenv.config()
 const app= express()
 
 app.use(cors({
-    origin:"http://localhost:5173"
+    origin:[
+        "https://lead-intake-automation1.onrender.com/api/leads",
+        "https://lead-intake-automation-pipeline-n8n.vercel.app",
+        "http://localhost:5173"
+    ]
 }))
 const PORT=  3001
 
