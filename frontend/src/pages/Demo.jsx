@@ -27,7 +27,7 @@ const Demo = () => {
 
     try {
      
-      const response = await fetch('/api/leads', {
+      const response = await fetch('http://localhost:3001/api/leads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
