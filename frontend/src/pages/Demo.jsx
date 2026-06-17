@@ -26,7 +26,7 @@ const Demo = () => {
     setStatus({ loading: true, success: null, error: null, pipelineData: null });
 
     try {
-      // Adjust this URL based on your server configuration (e.g., http://localhost:5000/api/leads)
+     
       const response = await fetch('/api/leads', {
         method: 'POST',
         headers: {
