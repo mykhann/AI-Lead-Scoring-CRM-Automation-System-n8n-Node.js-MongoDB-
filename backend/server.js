@@ -8,7 +8,7 @@ dotenv.config()
 const app= express()
 
 app.use(cors({
-    origin:"localhost:5173"
+    origin:"http://localhost:5173"
 }))
 const PORT=  3001
 
