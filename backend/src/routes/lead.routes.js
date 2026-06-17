@@ -12,20 +12,20 @@ router.post("/", async (req, res) => {
     }
 
     // send to n8n
- const response = await axios.post(
-  process.env.N8N_WEBHOOK_URL,
-  {
-    name,
-    email,
-    company,
-    message,
-  },
-  {
-    headers: {
-      "x-api-key": process.env.WEB_HOOK_KEY,
-    },
-  }
-);
+    const response = await axios.post(
+      process.env.N8N_WEBHOOK_URL,
+      {
+        name,
+        email,
+        company,
+        message,
+      },
+      {
+        headers: {
+          "X_WEBHOOK_API": process.env.WEB_HOOK_KEY,
+        },
+      }
+    );
 
     return res.json({
       success: true,
@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
     });
   } catch (error) {
     console.error("n8n Error Data:", error.response.data);
-      console.error("n8n Status Code:", error.response.status);
+    console.error("n8n Status Code:", error.response.status);
     res.status(500).json({ error: "Server error" });
   }
 });
