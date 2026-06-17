@@ -58,7 +58,7 @@ const Home = () => {
       </section>
 
       {/* ══════════════════════════════════
-          WORKFLOW SECTION (NEW)
+          WORKFLOW SECTION
       ══════════════════════════════════ */}
       <section className="workflow-section" id="workflow">
         <div className="workflow-container">
