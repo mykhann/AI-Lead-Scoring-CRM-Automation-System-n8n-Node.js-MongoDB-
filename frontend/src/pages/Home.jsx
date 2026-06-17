@@ -22,8 +22,7 @@ const Home = () => {
 
           <p className="subtitle">
             Our AI-powered automation system captures leads, analyzes
-            their intent, scores their quality, and sends results to your
-            CRM and email — all automatically.
+            their intent, scores their quality, and sends results to your email and saves the leads in Google Docs all automatically.
           </p>
 
           <div className="hero-actions">
