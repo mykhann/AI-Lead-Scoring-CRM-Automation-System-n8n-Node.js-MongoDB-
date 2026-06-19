@@ -26,14 +26,15 @@ const Demo = () => {
     setStatus({ loading: true, success: null, error: null, pipelineData: null });
 
     try {
-    const apiUrl = import.meta.env.VITE_API_URL;
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+const response = await fetch(`${apiUrl}/api/leads`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(formData),
+});
 
       const result = await response.json();
 
