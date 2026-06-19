@@ -290,6 +290,110 @@ pre {
     font-size: 1.8rem;
   }
 }
+/* ═══════════════════════════════════════
+   RESULT CARDS (NEW UI SECTION)
+═══════════════════════════════════════ */
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* Base Card */
+.card {
+  background: #0d1020;
+  border: 1px solid #1c1f35;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+/* STATUS CARD */
+.status-card {
+  border-left: 4px solid #22c55e;
+}
+
+.status-badge {
+  display: inline-block;
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.status-card h3 {
+  margin: 6px 0;
+  font-size: 1.1rem;
+}
+
+.muted {
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+/* AI CARD */
+.ai-card {
+  border-left: 4px solid #a855f7;
+}
+
+.ai-card h4 {
+  margin-bottom: 10px;
+}
+
+.ai-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.label {
+  color: #9ca3af;
+}
+
+.score {
+  font-weight: bold;
+}
+
+.score.cold {
+  color: #f59e0b;
+}
+
+.score.warm {
+  color: #38bdf8;
+}
+
+.score.hot {
+  color: #22c55e;
+}
+
+.ai-reason {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+/* AUTOMATION CARD */
+.automation-card {
+  border-left: 4px solid #38bdf8;
+}
+
+.automation-card h4 {
+  margin-bottom: 10px;
+}
+
+.automation-item {
+  font-size: 0.85rem;
+  padding: 6px 0;
+  color: #cbd5e1;
+}
+
+.automation-item.success {
+  color: #34d399;
+}
 
 /* Tablets (Collapses two-columns into vertical stacks safely) */
 @media (max-width: 768px) {
