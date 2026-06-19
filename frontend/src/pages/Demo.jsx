@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import './Demo.css';
+import { useNavigate } from 'react-router-dom';
 
 const Demo = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,9 +33,7 @@ const Demo = () => {
 
       const response = await fetch(`${apiUrl}/api/leads`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
@@ -43,18 +44,7 @@ const Demo = () => {
           loading: false,
           success: 'Lead successfully routed to n8n pipeline!',
           error: null,
-          pipelineData: result.data || {
-            status: "Processed by Groq LLM",
-            lead_qualification: {
-              score: "COLD",
-              reason: "No clear buying intent"
-            },
-            pipeline_logs: {
-              google_sheets: "Row appended successfully",
-              mongodb: "Document inserted",
-              notifications: "Email dispatched"
-            }
-          }
+          pipelineData: result.data
         });
 
         setFormData({ name: '', email: '', company: '', message: '' });
@@ -63,7 +53,7 @@ const Demo = () => {
         setStatus({
           loading: false,
           success: null,
-          error: result.error || 'Failed to submit lead to the pipeline.',
+          error: result.error || 'Failed to submit lead.',
           pipelineData: null
         });
       }
@@ -71,7 +61,7 @@ const Demo = () => {
       setStatus({
         loading: false,
         success: null,
-        error: 'Network or server error. Please try again later.',
+        error: 'Network error.',
         pipelineData: null
       });
     }
@@ -81,6 +71,12 @@ const Demo = () => {
 
   return (
     <div className="demo-page-container">
+
+      {/* BACK BUTTON */}
+      <button className="back-btn" onClick={() => navigate('/')}>
+        ← Back
+      </button>
+
       <div className="demo-layout">
 
         {/* LEFT FORM */}
@@ -88,7 +84,7 @@ const Demo = () => {
           <div className="form-header">
             <span className="demo-badge">Live Sandbox</span>
             <h2>Test the AI Pipeline</h2>
-            <p>Submit a test lead to see full automation flow in action.</p>
+            <p>Submit a test lead to see automation in action.</p>
           </div>
 
           <form onSubmit={handleSubmit} className="interactive-form">
@@ -125,58 +121,46 @@ const Demo = () => {
         {/* RIGHT PANEL */}
         <div className="demo-inspector">
 
-          {/* LOADING STATE */}
           {status.loading && (
             <div className="terminal-placeholder scanning">
-              <p className="pulse-text">&gt; Sending lead to pipeline...</p>
-              <p className="cyan-text">&gt; Processing via n8n + AI engine...</p>
+              <p className="pulse-text">&gt; Processing pipeline...</p>
             </div>
           )}
 
-          {/* EMPTY STATE */}
           {!status.loading && !data && (
             <div className="terminal-placeholder">
-              <p className="dim-text">// Waiting for pipeline execution...</p>
+              <p className="dim-text">// Waiting for execution...</p>
             </div>
           )}
 
-          {/* ERROR STATE */}
-          {status.error && (
-            <div className="terminal-placeholder error-log">
-              <p className="red-text">&gt; Pipeline failed</p>
-            </div>
-          )}
-
-          {/* RESULT CARDS */}
           {data && (
             <div className="result-container">
 
-              {/* STATUS CARD */}
+              {/* STATUS */}
               <div className="card status-card">
                 <div className="status-badge">200 OK</div>
                 <h3>Pipeline Completed Successfully</h3>
-                <p className="muted">Lead processed by automation system</p>
               </div>
 
-              {/* AI CARD */}
+              {/* AI */}
               <div className="card ai-card">
-                <h4>🧠 AI Lead Analysis</h4>
+                <h4>🧠 AI Analysis</h4>
 
                 <div className="ai-row">
-                  <span className="label">Score</span>
+                  <span>Score</span>
                   <span className={`score ${data?.lead_qualification?.score?.toLowerCase()}`}>
                     {data?.lead_qualification?.score}
                   </span>
                 </div>
 
-                <div className="ai-reason">
+                <p className="ai-reason">
                   {data?.lead_qualification?.reason}
-                </div>
+                </p>
               </div>
 
-              {/* AUTOMATION CARD */}
+              {/* AUTOMATION */}
               <div className="card automation-card">
-                <h4>⚙️ Automation Pipeline</h4>
+                <h4>⚙️ Automation</h4>
 
                 <div className="automation-item success">
                   ✔ Google Sheets → {data?.pipeline_logs?.google_sheets}

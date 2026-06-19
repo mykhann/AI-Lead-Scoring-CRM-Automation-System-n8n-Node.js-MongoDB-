@@ -395,6 +395,31 @@ pre {
   color: #34d399;
 }
 
+/* ═══════════════════════════════════════
+   BACK BUTTON
+═══════════════════════════════════════ */
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: #a855f7;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.2s;
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+.back-btn:hover {
+  background: rgba(124, 58, 237, 0.25);
+  transform: translateX(-2px);
+}
+
 /* Tablets (Collapses two-columns into vertical stacks safely) */
 @media (max-width: 768px) {
   .demo-page-container {
