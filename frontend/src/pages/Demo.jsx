@@ -43,9 +43,9 @@ const response = await fetch(`${apiUrl}/api/leads`, {
           loading: false,
           success: 'Lead successfully routed to n8n pipeline!',
           error: null,
-          pipelineData: result.data || { status: "Processed by Groq LLM", score: "A+" } // fallback illustration
+          pipelineData: result.data || { status: "Processed by Groq LLM", score: "A+" } 
         });
-        // Clear non-essential fields on success if preferred
+     
         setFormData({ name: '', email: '', company: '', message: '' });
       } else {
         setStatus({
