@@ -26,8 +26,8 @@ const Demo = () => {
     setStatus({ loading: true, success: null, error: null, pipelineData: null });
 
     try {
-     const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
-      const response = await fetch(webhookUrl, {
+    const apiUrl = import.meta.env.VITE_API_URL;
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
