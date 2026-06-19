@@ -33,8 +33,8 @@ router.post("/", async (req, res) => {
       data: response.data,
     });
   } catch (error) {
-    console.error("n8n Error Data:", error.response.data);
-    console.error("n8n Status Code:", error.response.status);
+    console.error("n8n Error Data:", error.response?.data);
+    console.error("n8n Status Code:", error.response?.status);
     res.status(500).json({ error: "Server error" });
   }
 });
