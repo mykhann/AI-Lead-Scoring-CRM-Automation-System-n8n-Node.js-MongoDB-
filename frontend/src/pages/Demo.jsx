@@ -27,7 +27,7 @@ const Demo = () => {
 
     try {
      const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
-      const response = await fetch('webhookUrl', {
+      const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
