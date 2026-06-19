@@ -26,8 +26,8 @@ const Demo = () => {
     setStatus({ loading: true, success: null, error: null, pipelineData: null });
 
     try {
-     
-      const response = await fetch('https://lead-intake-automation1.onrender.com/api/leads', {
+     const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
+      const response = await fetch('webhookUrl', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
